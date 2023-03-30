@@ -1,0 +1,14 @@
+entities\Customer_.class
+entities\Customer.class
+entities\Subscription_.class
+client\PublishingClient.class
+entities\Address_.class
+com\mycompany\publishingdemo\JakartaRestConfiguration.class
+beans\PublishingBean.class
+entities\Subscription.class
+rest\RestResource.class
+beans\PublishingBeanLocal.class
+CDIBean\CustomerBean$1.class
+entities\Address.class
+CDIBean\CustomerBean.class
+com\mycompany\publishingdemo\resources\JakartaEE8Resource.class

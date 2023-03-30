@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body> <h3>
+            
+            <br/><!-- comment -->
+            
+            <h:form>
+                 <h:outputLabel for="pid" value="Person Name"/>
+                <h:inputText id="pids" required="true" requiredMessage="The Name cannot be blank" value="#{person.pname}">
+                    <f:converter converterId="myconverter"/>
+                </h:inputText>
+            </h:form>
+            
+            <br/><!-- comment -->
+            Person Name = ${person.pname} <br/><!-- comment -->
+            
+            
+            
+            <h:outputText id="n1" value="#{converterBean.num}">
+                <f:convertNumber maxFractionDigits="2"/>
+            </h:outputText> <br/><!-- comment -->
+             <h:outputText id="n2" value="#{converterBean.num}">
+                 <f:convertNumber maxIntegerDigits="2"/>
+            </h:outputText> <br/><!-- comment -->
+            
+            <h:outputText id="n3" value="#{converterBean.date}">
+                <f:convertDateTime timeStyle="short" type="both"/>
+            </h:outputText> <br/><!-- comment -->
+            
+            
+      
+        </h3></h:body>
+</html>
+
