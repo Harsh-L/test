@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        <br/> ${mesg.welcome}
+        <br/> ${hindimesg.welcome}
+        <br/>
+        <h:messages style="color:red"/>
+         <h:form>
+        <h:panelGrid columns="2" border="1">
+           
+                <h:outputLabel for="pid" value="Person Name"/>
+                <h:inputText id="pid" required="true" requiredMessage="The Name cannot be blank" value="#{person.pname}">
+                    <f:validateLength minimum="1" maximum="9"/>
+                </h:inputText>
+                
+               <h:outputLabel for="email" value="Email"/>
+               <h:inputText id="email" required="true" requiredMessage="The Email cannot be blank" value="#{person.email}">
+                   <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>
+               </h:inputText> 
+               
+               <h:outputLabel for="sal" value="Salary"/>
+               <h:inputText id="sal" validator="#{person.validateSal}" required="true" requiredMessage="The Salary cannot be blank" value="#{person.salary}">
+                   <!--<f:validateDoubleRange minimum="2000" maximum="200000"/>-->
+                   <!--<f:validator  validatorId="myvalidator"/>-->
+               </h:inputText> 
+               
+                <h:outputLabel for="gender" value="Gender"/>
+               <h:selectOneRadio id="gender" value="#{person.gender}">
+                   <f:selectItem itemLabel="Male" itemValue="Male"/>
+                   <f:selectItem itemLabel="Female" itemValue="Female"/>
+               </h:selectOneRadio>
+               
+               <h:outputLabel for="city" value="City"/>
+               <h:selectOneMenu id="city" value="#{person.city}">
+                   <f:selectItem itemLabel="Delhi" itemValue="Delhi"/>
+                   <f:selectItem itemLabel="Mumbai" itemValue="Mumbai"/>
+                   <f:selectItem itemLabel="Pune" itemValue="Pune"/>
+                   <f:selectItem itemLabel="Surat" itemValue="Surat"/>
+                   
+               </h:selectOneMenu> 
+               
+                <h:outputLabel for="hobby" value="Hobbies"/>
+                <h:selectManyCheckbox id="hobby" value="#{person.hobbies}">
+                   <f:selectItem itemLabel="Singing" itemValue="Singing"/>
+                   <f:selectItem itemLabel="Painting" itemValue="Painting"/>
+                   <f:selectItem itemLabel="Reading" itemValue="Reading"/>
+                   <f:selectItem itemLabel="Writing" itemValue="Writing"/>
+                </h:selectManyCheckbox>
+                
+                
+                
+                <h:commandButton id="sub" value="Submit" action="#{person.doSubmit()}"/>
+                <h:commandButton id="res" value="reset" action="#{person.reset()}"/>
+                
+            
+         </h:panelGrid>
+             </h:form>  
+    </h:body>
+</html>
+
