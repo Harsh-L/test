@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+         xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+      Customer : ${shopBean.c.cname}
+                <h:form>
+               <h:panelGrid columns="5" columnClasses="firstColumn1,secondColumn2,thirdColumn3, fourthColumn4, fifthColumn5"   border="1" style="width:400"  >
+               <h:outputText  value="Product Name"/>
+               <h:outputText  value="Rate"/>
+               <h:outputText  value="Discount(%)"/>
+               <h:outputText  value="Quantity"/>
+                <h:outputText  value="Total"/>
+            
+               </h:panelGrid>
+        
+                    <c:forEach items="#{shopBean.cartProducts}" var="pr" varStatus="r"> 
+            <h:panelGrid columns="5" columnClasses="firstColumn1,secondColumn2,thirdColumn3, fourthColumn4, fifthColumn5"   border="1" style="width:400"  >
+                
+                <h:outputText  value="#{pr.pname}"/>
+                <h:outputText value="#{pr.rate}"/> 
+                <h:outputText value="#{pr.discount}"/> 
+                <h:outputText  value="#{pr.quantity}"/>
+                <h:outputText  value="#{pr.total}"/>
+                
+                
+            </h:panelGrid>
+         </c:forEach>
+             <h:outputText  value=" Grand Total:  #{shopBean.grandtotal}"/>    <br/>  
+        <h:commandButton id="cmd1" value="Go Back to Shop" action="index.jsf"/>
+        <h:commandButton id="cmd2" value="Pay Bill" action="#{shopBean.generateBill()}"/>
+         </h:form>
+    </h:body>
+</html>
+
