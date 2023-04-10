@@ -1,0 +1,11 @@
+entity/Billmaster.class
+ejb/CustLogic.class
+ejb/DataLogic.class
+it/shopapp/resources/JakartaEE8Resource.class
+it/shopapp/JakartaRestConfiguration.class
+entity/Billdetail.class
+bean/CustomerBean.class
+bean/ShopBean.class
+bean/PurchasedProducts.class
+entity/Products.class
+entity/Cust.class
