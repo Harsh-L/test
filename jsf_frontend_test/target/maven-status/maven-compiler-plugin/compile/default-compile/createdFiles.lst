@@ -1,0 +1,3 @@
+com\mycompany\jsf_frontend_test\JakartaRestConfiguration.class
+com\mycompany\jsf_frontend_test\resources\JakartaEE8Resource.class
+cdiBean\frontend.class

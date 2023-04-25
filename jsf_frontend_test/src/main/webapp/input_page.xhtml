@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        Hello from Facelets
+        <h:form>
+            <br/>
+            <label >Checkbox</label>
+            <h:selectManyCheckbox value="#{frontend.days}" id="mydays">
+                <f:selectItems value="#{frontend.days}"/>
+            </h:selectManyCheckbox>
+
+            <br/>
+            <label >Checkbox V.2.0</label> <br/>
+            
+            <c:forEach items="#{frontend.days}" var="day">
+                <c:if test="#{frontend.days.get(0) eq day}">
+                    <input type="checkbox" name="daysSelected" value="#{day}" id="#{day}" checked="checked" />
+                    <label for="#{day}">#{day}</label>    
+                </c:if>
+                <c:otherwise>
+                    <input type="checkbox" name="daysSelected" value="#{day}" id="#{day}" />
+                    <label for="#{day}">#{day}</label>
+                </c:otherwise>
+            </c:forEach>
+            
+            <br/>
+            <br/>
+            <lable>Radio</lable>
+            <h:selectOneRadio value="#{frontend.days}">
+                <f:selectItems value="#{frontend.days}"/>
+            </h:selectOneRadio>
+
+            <!--            <lable>Listbox</lable>
+                        <h:selectManyListbox value="#{frontend.days}" >
+                            <f:selectItems value="#{frontend.days}"/>
+                        </h:selectManyListbox>
+                        <br/>-->
+            <br/>
+            <lable>Dropdown</lable>
+            <h:selectOneMenu value="#{frontend.days}" >
+                <f:selectItems value="#{frontend.days}"/>
+            </h:selectOneMenu>
+
+
+        </h:form>
+
+    </h:body>
+</html>
+
